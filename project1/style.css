@@ -45,14 +45,15 @@
     background-color: #f4976c;
 }
 
-#grocery-item {
+.grocery-item{
     margin: .5em;
-    width: 30%;
+    width: auto;
     border-radius: 1em; 
     box-shadow: 2px 2px 4px gray;
     background: #303c6c;
     color: #d2fdff;
-    text-align: center;
+    text-align: left;
+    padding: 8px;
 }
 
 .bottom-container{
@@ -62,7 +63,7 @@
 
 .left-half {
     background-color: #ff9e2c;
-    flex: 1;
+    flex: 2;
     padding: 1rem;
 }
   

@@ -17,9 +17,9 @@ The project includes pulling out
 5. Flexbox to make website responsive
 
 ## Learnings
+WIP
 
-
-# User Journey
+## User Journey
 ### User Journey 1
 As a user, I should first be able to know how to navigate the page. <br />
 <br />

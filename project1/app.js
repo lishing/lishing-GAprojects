@@ -37,13 +37,14 @@ $( () =>{
     const fetchRecipe = async() =>{
         let result = await getRecipe($("#input-box").val());
         console.log(result);
+        $('.ordered-list').remove();
         //RECIPE = {...result};
         let groceriesArray = result.hits[0].recipe.ingredients;
         let orderedList = $('<ol>').addClass('ordered-list');
         for (let i=0; i<groceriesArray.length; i++){
             let groceryList = $('<li>').addClass('grocery-item').text(groceriesArray[i].food);
             orderedList.append(groceryList);
-            let deleteButton = $('<button>').addClass('button').attr('id', 'delete-button').text('delete');
+            let deleteButton = $('<button>').addClass('btn').addClass('btn-light').attr('id', 'delete-button').text('delete');
             deleteButton.on('click', deleteItem);
             groceryList.append(deleteButton);
         }
