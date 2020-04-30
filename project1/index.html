@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Husband Helpers</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div class="jumbotron no-margin" id="top-container">
+            <h1 class="display-4" id="header">Hombres, que pasa!</h1>
+            <p class="lead" id="intro">Hola muchachos! Now that you are stuck at home more than ever, you sometimes got to lend a hand to your ladies.</p>
+            <hr class="my-4">
+            <p>Be the man and do the shopping!</p>
+            <section class="about">
+                <a class="btn btn-primary btn-lg" href="#" role="button" id="open">Learn more</a>
+                <div id="modal">
+                    <div id="modal-textbox">
+                        <h1>Here is how you use this, nUbz</h1>
+                        <p>1. First, you got to ask your wife what her stomach fancies. "¿Qué quieres comer?" Remember: Happy tummy, happy wife, happy life</p>
+                        <p>2. Type in the dish she plans to eat, or you plan to cook</p>
+                        <p>3. A recipe of ingredients will be shown. You can add those ingredients into a to-do list.</p>
+                        <p>4. For all you forgetful hombres out there, fear not! Now you can even block your time to go shopping for your mujeres! Click on "add to calendar" to add those in your outlook calendar.</p>
+                        <div id="modal-footer">
+                            <button class="btn btn-primary btn-lg" href="#" role="button" id="close" >Close</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class ="form">
+            <h2 for="input-box">What does your stomach fancy today?</h2>
+            <div class="form-group no-margin">
+                <input type="text" name="" value="" id="input-box">
+                <button type="submit" class = "btn btn-primary" name="button" id="submit">Ahoy recipe!</button>
+            </div>
+        </div>
+        <section class = "bottom-container">
+            <div class="left-half">
+                <article>
+                  <h2>Your choice of recipe</h2>
+                </article>
+            </div>
+            <div class="right-half" id="groceries">
+                <article>
+                  <h2>Groceries List</h2>
+                </article>
+            </div> 
+        </section>
+    </body>
+</html>
