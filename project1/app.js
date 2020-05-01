@@ -40,29 +40,29 @@ $( () =>{
         $('.ordered-list').remove();
         let card = $('<div>').addClass('card').attr('style', 'width: 18rem');
         for (let j=0; j<3; j++){
-            let recipeImage = results.hits[j].image
-            let recipeTitle = results.hits[j].label;
-            let recipeLink = results.hits[j].url;
+            let recipeImage = result.hits[j].image
+            let recipeTitle = result.hits[j].label;
+            let recipeLink = result.hits[j].url;
             let img = $('<img>').addClass('card-img-top').attr("src", recipeImage);
             let title = $('<h5>').addClass('card-title').text(recipeTitle);
-            let recipeDirectedLink = $('<a>').addClass('btn').addClass('btn-link').attr('href', recipeLink).text('Go to recipe');
+            let recipeDirectedLink = $('<a>').addClass('btn').addClass('btn-link').setAttr('href', recipeLink).text('Go to recipe');
             card.append(img).append(title).append(recipeDirectedLink);
         }
         $('.left-half').append(card);
-        //RECIPE = {...result};
-        // let groceriesArray = result.hits[0].recipe.ingredients;
-        // let orderedList = $('<ol>').addClass('ordered-list');
-        // for (let i=0; i<groceriesArray.length; i++){
-        //     let groceryList = $('<li>').addClass('grocery-item').text(groceriesArray[i].food);
-        //     orderedList.append(groceryList);
-        //     let deleteButton = $('<button>').addClass('btn').addClass('btn-light').attr('id', 'delete-button').text('remove');
-        //     deleteButton.on('click', deleteItem);
-        //     groceryList.append(deleteButton);
-        //     // let doneButton = $('<button>').addClass('btn').addClass('btn-light').attr('id', 'done-button').text('done');
-        //     // doneButton.on('click', doneItem);
-        //     // groceryList.append(doneButton);
-        // }
-        // $('#groceries').append(orderedList);
+        RECIPE = {...result};
+        let groceriesArray = result.hits[0].recipe.ingredients;
+        let orderedList = $('<ol>').addClass('ordered-list');
+        for (let i=0; i<groceriesArray.length; i++){
+            let groceryList = $('<li>').addClass('grocery-item').text(groceriesArray[i].food);
+            orderedList.append(groceryList);
+            let deleteButton = $('<button>').addClass('btn').addClass('btn-light').attr('id', 'delete-button').text('remove');
+            deleteButton.on('click', deleteItem);
+            groceryList.append(deleteButton);
+            // let doneButton = $('<button>').addClass('btn').addClass('btn-light').attr('id', 'done-button').text('done');
+            // doneButton.on('click', doneItem);
+            // groceryList.append(doneButton);
+        }
+        $('#groceries').append(orderedList);
         
     }
 
