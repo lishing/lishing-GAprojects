@@ -38,19 +38,32 @@ $( () =>{
         let result = await getRecipe($("#input-box").val());
         console.log(result);
         $('.ordered-list').remove();
-        //RECIPE = {...result};
-        let groceriesArray = result.hits[0].recipe.ingredients;
-        let orderedList = $('<ol>').addClass('ordered-list');
-        for (let i=0; i<groceriesArray.length; i++){
-            let groceryList = $('<li>').addClass('grocery-item').text(groceriesArray[i].food);
-            orderedList.append(groceryList);
-            let deleteButton = $('<button>').addClass('btn').addClass('btn-light').attr('id', 'delete-button').text('delete');
-            deleteButton.on('click', deleteItem);
-            groceryList.append(deleteButton);
+        let card = $('<div>').addClass('card').attr('style', 'width: 18rem');
+        for (let j=0; j<3; j++){
+            let recipeImage = results.hits[j].image
+            let recipeTitle = results.hits[j].label;
+            let recipeLink = results.hits[j].url;
+            let img = $('<img>').addClass('card-img-top').attr("src", recipeImage);
+            let title = $('<h5>').addClass('card-title').text(recipeTitle);
+            let recipeDirectedLink = $('<a>').addClass('btn').addClass('btn-link').attr('href', recipeLink).text('Go to recipe');
+            card.append(img).append(title).append(recipeDirectedLink);
         }
-        //let groceries = RECIPE.hits[0].recipe.ingredients[0].food;
-        // let groceryList = $('<div>').addClass('grocery-item').text(groceries);
-        $('#groceries').append(orderedList);
+        $('.left-half').append(card);
+        //RECIPE = {...result};
+        // let groceriesArray = result.hits[0].recipe.ingredients;
+        // let orderedList = $('<ol>').addClass('ordered-list');
+        // for (let i=0; i<groceriesArray.length; i++){
+        //     let groceryList = $('<li>').addClass('grocery-item').text(groceriesArray[i].food);
+        //     orderedList.append(groceryList);
+        //     let deleteButton = $('<button>').addClass('btn').addClass('btn-light').attr('id', 'delete-button').text('remove');
+        //     deleteButton.on('click', deleteItem);
+        //     groceryList.append(deleteButton);
+        //     // let doneButton = $('<button>').addClass('btn').addClass('btn-light').attr('id', 'done-button').text('done');
+        //     // doneButton.on('click', doneItem);
+        //     // groceryList.append(doneButton);
+        // }
+        // $('#groceries').append(orderedList);
+        
     }
 
     const deleteItem = (event) =>{
@@ -58,7 +71,11 @@ $( () =>{
         item.remove();
     }
 
-    //RECIPE.hits[0].recipe.ingredients[0].food
+    //how to do a checklist button
+    // const doneItem = (event) => {
+    //     let item = $(event.currentTarget).parent();
+    //     item.prop('checked', 'true');
+    // }
 
     $ahoyRecipeBtn.on('click', fetchRecipe);
 
