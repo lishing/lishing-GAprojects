@@ -5,13 +5,9 @@ html, body {
 #open, #close, #submit{
     background-color: #123c69;
     border:#123c69;  
-    cursor: pointer;  
+    cursor: pointer; 
+    padding: 8px; 
 }
-/* #close{
-    background-color: #123c69;
-    border:#123c69;  
-    cursor: pointer;  
-} */
 
 #modal{
     background-color:rgba(0,0,0,0.3);
@@ -28,7 +24,7 @@ html, body {
 #modal-textbox{
     background-color: #edc7b7;
     color: black;
-    height: 500px;
+    height: 450px;
     width: 600px;
     border-radius: 2px;
     margin: 150px auto;
@@ -53,7 +49,7 @@ html, body {
 }
 
 .top-container {
-    height: 43%;
+    height: 45%;
     background-color: #f8e9a1 !important;
     position: relative;
 }
@@ -68,8 +64,9 @@ html, body {
 }
 
 .bottom-container{
-    min-height: 57%;
+    min-height: 55%;
     display: flex;
+    position: relative;
 }
 
 .custom-card-width {
@@ -113,5 +110,11 @@ h2{
     display: block;
     width: 100%;
 }
+
+#delete-button{
+    margin-left: 1em;
+}
+
+
 
 
