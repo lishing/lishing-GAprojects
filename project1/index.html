@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,12 +15,15 @@
         <script src="app.js"></script>
     </head>
     <body>
-        <div class="jumbotron no-margin" id="top-container">
-            <h1 class="display-4" id="header">Hombres, que pasa!</h1>
-            <p class="lead" id="intro">Hola muchachos! Now that you are stuck at home more than ever, you sometimes got to lend a hand to your ladies.</p>
-            <hr class="my-4">
-            <p>Be the man and do the shopping!</p>
-            <section class="about">
+        <section class="top-container px-0 py-0">
+            <div class="introduction px-3 pt-3">
+                <h1 class="display-4" id="header">Hombres, que pasa!</h1>
+                <p class="lead" id="intro">Hola muchachos! Now that you are stuck at home more than ever, you sometimes got to lend a hand to your ladies.</p>
+                <hr class="my-4">
+                <p class="mb-0">Be the man and do the shopping!</p>
+            </div>
+
+            <div class="about px-3 py-3">
                 <a class="btn btn-primary btn-lg" href="#" role="button" id="open">Learn more</a>
                 <div id="modal">
                     <div id="modal-textbox">
@@ -34,31 +38,25 @@
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-        <div class ="form">
-            <h2 for="input-box">What does your stomach fancy today?</h2>
-            <div class="form-group no-margin">
-                <input type="text" name="" value="" id="input-box">
-                <button type="submit" class = "btn btn-primary" name="button" id="submit">Ahoy recipe!</button>
             </div>
-        </div>
-        <section class = "bottom-container">
-            <div class="left-half">
-                <article>
+
+            <div class ="form">
+                <h2 for="input-box">What does your stomach fancy today?</h2>
+                <div class="form-group no-margin">
+                    <input type="text" name="" value="" id="input-box">
+                    <button type="submit" class = "btn btn-primary" name="button" id="submit">Ahoy recipe!</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="bottom-container">
+            <div class="left-half full-height">
+                <div class="title-container">
                     <h2>Recipe List</h2>
-                </article>
-                <!-- <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="..."> 
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-link">Go to recipe</a>
-                        <a href="#" class="btn btn-link">Display groceries</a>
-                    </div>
-                </div> -->
+                    <div class="recipe-container"></div>
+                </div>
             </div>
-            <div class="right-half" id="groceries">
+            <div class="right-half full-height" id="groceries">
                 <article>
                   <h2 class="groceries-header">Groceries List</h2>
                 </article>
