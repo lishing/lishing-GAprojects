@@ -111,9 +111,10 @@ h2{
     width: 100%;
 }
 
-#delete-button{
+#delete-button, #done-button{
     margin-left: 1em;
 }
+
 
 
 

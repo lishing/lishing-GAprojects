@@ -40,16 +40,29 @@ $( () =>{
         $('.recipe-cards').remove();
     }
 
+    const goToRecipeLink = () =>{
+        let recipeDirectedLink = $('<a>').addClass('btn');
+        recipeDirectedLink.addClass('btn-link');
+        recipeDirectedLink.attr('href', recipeLink)
+        recipeDirectedLink.attr('target', '_blank');
+        recipeDirectedLink.text('Go to recipe');
+
+    }
+
     const buildIngredients = (ingredients) =>{
         return ingredients.map((ingredient) => {
             let groceryList = $('<li>').addClass('grocery-item').text(ingredient.food);
-            let deleteButton = $('<button>').addClass('btn').addClass('btn-light').attr('id', 'delete-button').text('remove');
+            let deleteButton = $('<button>').addClass('btn').addClass('btn-danger').attr('id', 'delete-button').text('remove');
             deleteButton.on('click', deleteItem);
+            let doneButton = $('<button>').addClass('btn').addClass('btn-success').attr('id', 'done-button').text('done!');
+            doneButton.on('click', doneItem);
             groceryList.append(deleteButton)
+            .append(doneButton);
             return groceryList;
 
         })
     }
+    
     const fetchRecipe = async() =>{
         let result = await getRecipe($("#input-box").val());
         searchedRecipes = result.hits;
@@ -84,33 +97,23 @@ $( () =>{
             cardContentContainer.append(title).append(recipeDirectedLink).append(listGroceries);
             card.append(img).append(cardContentContainer);
             $('.recipe-container').append(card);
-        }
-        
-        
+        }  
     }
-
     const deleteItem = (event) =>{
         let item = $(event.currentTarget).parent();
         item.remove();
     }
 
-    //how to do a checklist button
-    // const doneItem = (event) => {
-    //     let item = $(event.currentTarget).parent();
-    //     item.prop('checked', 'true');
-    // }
-
+    const doneItem = (event) =>{
+        let item = $(event.currentTarget).parent();
+        item.css("text-decoration", "line-through");
+    }
+    
     $ahoyRecipeBtn.on('click', fetchRecipe);
-
-
 
     const recipe = getRecipe('beef rendang');
     console.log(recipe);
 
 });
 
-// $(async () => {
-//     const recipe = await getRecipe('beef rendang');
-//     console.log(recipe);
-// });
 
