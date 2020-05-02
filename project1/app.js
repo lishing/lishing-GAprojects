@@ -40,6 +40,7 @@ $( () =>{
         $('.recipe-cards').remove();
     }
 
+    //to refactor into HOF, does not work
     const createRecipeList = (recipeImage, recipeLink, recipeTitle, index) =>{
         let card = $('<div>')
             .addClass('card mx-2 my-2 custom-card-width')
@@ -78,7 +79,7 @@ $( () =>{
         searchedRecipes = result.hits;
         clearRecipes();
         for (let j=0; j<searchedRecipes.length; j++){
-            createRecipeList(recipeImage, recipeLink, recipeTitle, j);
+            createRecipeList(recipeImage, recipeLink, recipeTitle, j); //does not work
             // let card = $('<div>')
             //     .addClass('card mx-2 my-2 custom-card-width')
             //     .addClass('recipe-cards')
