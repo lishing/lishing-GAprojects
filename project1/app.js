@@ -40,13 +40,23 @@ $( () =>{
         $('.recipe-cards').remove();
     }
 
-    const goToRecipeLink = () =>{
+    const createRecipeList = (recipeImage, recipeLink, recipeTitle, index) =>{
+        let card = $('<div>')
+            .addClass('card mx-2 my-2 custom-card-width')
+            .addClass('recipe-cards')
+            .attr('id', 'recipe-card')
+            .attr('style', 'width: 18rem');
+        let recipeImage = searchedRecipes[index].recipe.image;
+        let recipeTitle = searchedRecipes[index].recipe.label;
+        let recipeLink = searchedRecipes[index].recipe.url;
+        const cardContentContainer = $('<div>').addClass('px-3 py-3');
+        let img = $('<img>').addClass('card-img-top').attr("src", recipeImage);
+        let title = $('<h5>').addClass('card-title').text(recipeTitle);
         let recipeDirectedLink = $('<a>').addClass('btn');
         recipeDirectedLink.addClass('btn-link');
         recipeDirectedLink.attr('href', recipeLink)
         recipeDirectedLink.attr('target', '_blank');
         recipeDirectedLink.text('Go to recipe');
-
     }
 
     const buildIngredients = (ingredients) =>{
@@ -62,28 +72,29 @@ $( () =>{
 
         })
     }
-    
+
     const fetchRecipe = async() =>{
         let result = await getRecipe($("#input-box").val());
         searchedRecipes = result.hits;
         clearRecipes();
         for (let j=0; j<searchedRecipes.length; j++){
-            let card = $('<div>')
-                .addClass('card mx-2 my-2 custom-card-width')
-                .addClass('recipe-cards')
-                .attr('id', 'recipe-card')
-                .attr('style', 'width: 18rem');
-            let recipeImage = result.hits[j].recipe.image;
-            let recipeTitle = result.hits[j].recipe.label;
-            let recipeLink = result.hits[j].recipe.url;
-            const cardContentContainer = $('<div>').addClass('px-3 py-3');
-            let img = $('<img>').addClass('card-img-top').attr("src", recipeImage);
-            let title = $('<h5>').addClass('card-title').text(recipeTitle);
-            let recipeDirectedLink = $('<a>').addClass('btn');
-            recipeDirectedLink.addClass('btn-link');
-            recipeDirectedLink.attr('href', recipeLink)
-            recipeDirectedLink.attr('target', '_blank');
-            recipeDirectedLink.text('Go to recipe');
+            createRecipeList(recipeImage, recipeLink, recipeTitle, j);
+            // let card = $('<div>')
+            //     .addClass('card mx-2 my-2 custom-card-width')
+            //     .addClass('recipe-cards')
+            //     .attr('id', 'recipe-card')
+            //     .attr('style', 'width: 18rem');
+            // let recipeImage = searchedRecipes[j].recipe.image;
+            // let recipeTitle = searchedRecipes[j].recipe.label;
+            // let recipeLink = searchedRecipes[j].recipe.url;
+            // const cardContentContainer = $('<div>').addClass('px-3 py-3');
+            // let img = $('<img>').addClass('card-img-top').attr("src", recipeImage);
+            // let title = $('<h5>').addClass('card-title').text(recipeTitle);
+            // let recipeDirectedLink = $('<a>').addClass('btn');
+            // recipeDirectedLink.addClass('btn-link');
+            // recipeDirectedLink.attr('href', recipeLink)
+            // recipeDirectedLink.attr('target', '_blank');
+            // recipeDirectedLink.text('Go to recipe');
             let listGroceries = $('<a>').addClass('btn');
             listGroceries.addClass('btn-info');
             listGroceries.on('click', (event)=>{
