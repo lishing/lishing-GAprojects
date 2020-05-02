@@ -38,17 +38,22 @@ $( () =>{
         let result = await getRecipe($("#input-box").val());
         console.log(result);
         $('.ordered-list').remove();
-        let card = $('<div>').addClass('card').attr('style', 'width: 18rem');
         for (let j=0; j<3; j++){
-            let recipeImage = result.hits[j].image
-            let recipeTitle = result.hits[j].label;
-            let recipeLink = result.hits[j].url;
+            let card = $('<div>').addClass('card').attr('style', 'width: 18rem');
+            let recipeImage = result.hits[j].recipe.image
+            let recipeTitle = result.hits[j].recipe.label;
+            let recipeLink = result.hits[j].recipe.url;
+            console.log(recipeLink);
             let img = $('<img>').addClass('card-img-top').attr("src", recipeImage);
             let title = $('<h5>').addClass('card-title').text(recipeTitle);
-            let recipeDirectedLink = $('<a>').addClass('btn').addClass('btn-link').setAttr('href', recipeLink).text('Go to recipe');
+            let recipeDirectedLink = $('<a>').addClass('btn');
+            recipeDirectedLink.addClass('btn-link');
+            recipeDirectedLink.attr('href', recipeLink);
+            recipeDirectedLink.text('Go to recipe');
             card.append(img).append(title).append(recipeDirectedLink);
+            $('.left-half').append(card);
         }
-        $('.left-half').append(card);
+        
         RECIPE = {...result};
         let groceriesArray = result.hits[0].recipe.ingredients;
         let orderedList = $('<ol>').addClass('ordered-list');
