@@ -66,6 +66,9 @@
     background-color: #a8d0e6;
     flex: 2;
     padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
 }
   
 .right-half {
@@ -86,4 +89,6 @@
 h2{
     padding: 0.4rem;
 }
+
+
 
