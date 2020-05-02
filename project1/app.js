@@ -39,19 +39,22 @@ $( () =>{
         console.log(result);
         $('.ordered-list').remove();
         for (let j=0; j<3; j++){
-            let card = $('<div>').addClass('card').attr('style', 'width: 18rem');
+            let card = $('<div>')
+                .addClass('card mx-2 my-2 custom-card-width')
+                .attr('style', 'width: 18rem');
             let recipeImage = result.hits[j].recipe.image
             let recipeTitle = result.hits[j].recipe.label;
             let recipeLink = result.hits[j].recipe.url;
-            console.log(recipeLink);
+            const cardContentContainer = $('<div>').addClass('px-3 py-3');
             let img = $('<img>').addClass('card-img-top').attr("src", recipeImage);
             let title = $('<h5>').addClass('card-title').text(recipeTitle);
             let recipeDirectedLink = $('<a>').addClass('btn');
             recipeDirectedLink.addClass('btn-link');
             recipeDirectedLink.attr('href', recipeLink);
             recipeDirectedLink.text('Go to recipe');
-            card.append(img).append(title).append(recipeDirectedLink);
-            $('.left-half').append(card);
+            cardContentContainer.append(title).append(recipeDirectedLink);
+            card.append(img).append(cardContentContainer);
+            $('.recipe-container').append(card);
         }
         
         RECIPE = {...result};
