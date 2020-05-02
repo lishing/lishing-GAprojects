@@ -55,7 +55,7 @@ With the selected recipe, I should be able to put the ingredients into to-do lis
 2. I should be able to delete the ingredients when see fit
 3. Once done, I should be able to know
 
-## Extra Implementation
+**Extra Implementation** <br />
 <br />
 1. Change to-do list via calendar (change to-do list to .cal) for grocery shopping
 2. There should be a timer as reminder to consume purchased groceries within 2 weeks.
