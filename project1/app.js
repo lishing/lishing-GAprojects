@@ -40,8 +40,7 @@ $( () =>{
         $('.recipe-cards').remove();
     }
 
-    //to refactor into HOF, does not work
-    const buildRecipeCard = (recipeImage, recipeLink, recipeTitle) =>{
+    const buildRecipeCard = (recipeImage, recipeLink, recipeTitle, ingredients) =>{
         // this part needs to take in parameters as arguments
         // create a card div
         let card = $('<div>')
@@ -63,7 +62,7 @@ $( () =>{
             listGroceries.addClass('btn-info');
             listGroceries.on('click', (event)=>{
                 clearIngredients();
-                let orderedList = $('<ol>').addClass('ordered-list').append(buildIngredients(searchedRecipes.recipe.ingredients));
+                let orderedList = $('<ol>').addClass('ordered-list').append(buildIngredients(ingredients));
                 $('#groceries').append(orderedList);
             });
             listGroceries.text('Groceries list');
@@ -95,36 +94,8 @@ $( () =>{
             let recipeImage = searchedRecipes[j].recipe.image;
             let recipeTitle = searchedRecipes[j].recipe.label;
             let recipeLink = searchedRecipes[j].recipe.url;
-            buildRecipeCard(recipeImage, recipeLink, recipeTitle); //does not work
-            // let card = $('<div>')
-            //     .addClass('card mx-2 my-2 custom-card-width')
-            //     .addClass('recipe-cards')
-            //     .attr('id', 'recipe-card')
-            //     .attr('style', 'width: 18rem');
-            // let recipeImage = searchedRecipes[j].recipe.image;
-            // let recipeTitle = searchedRecipes[j].recipe.label;
-            // let recipeLink = searchedRecipes[j].recipe.url;
-            // const cardContentContainer = $('<div>').addClass('px-3 py-3');
-            // let img = $('<img>').addClass('card-img-top').attr("src", recipeImage);
-            // let title = $('<h5>').addClass('card-title').text(recipeTitle);
-            // let recipeDirectedLink = $('<a>').addClass('btn');
-            // recipeDirectedLink.addClass('btn-link');
-            // recipeDirectedLink.attr('href', recipeLink)
-            // recipeDirectedLink.attr('target', '_blank');
-            // recipeDirectedLink.text('Go to recipe');
-            // let listGroceries = $('<a>').addClass('btn');
-            // listGroceries.addClass('btn-info');
-            // listGroceries.on('click', (event)=>{
-            //     clearIngredients();
-            //     console.log(j);
-            //     console.log(searchedRecipes[j].recipe.ingredients);
-            //     let orderedList = $('<ol>').addClass('ordered-list').append(buildIngredients(searchedRecipes[j].recipe.ingredients));
-            //     $('#groceries').append(orderedList);
-            // });
-            // listGroceries.text('Groceries list');
-            // cardContentContainer.append(title).append(recipeDirectedLink).append(listGroceries);
-            // card.append(img).append(cardContentContainer);
-            // $('.recipe-container').append(card);
+            let ingredients = searchedRecipes[j].recipe.ingredients
+            buildRecipeCard(recipeImage, recipeLink, recipeTitle, ingredients); 
         }  
     }
     const deleteItem = (event) =>{
