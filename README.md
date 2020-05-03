@@ -7,7 +7,7 @@ This is also built for people who are new to cooking, and need ideas for home-co
 
 
 ## Project Scope and Approach
-The project includes pulling out
+WIP
 
 ## Technology utilized
 1. HTML and CSS

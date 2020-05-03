@@ -41,23 +41,35 @@ $( () =>{
     }
 
     //to refactor into HOF, does not work
-    const createRecipeList = (recipeImage, recipeLink, recipeTitle, index) =>{
+    const buildRecipeCard = (recipeImage, recipeLink, recipeTitle) =>{
+        // this part needs to take in parameters as arguments
+        // create a card div
         let card = $('<div>')
             .addClass('card mx-2 my-2 custom-card-width')
             .addClass('recipe-cards')
             .attr('id', 'recipe-card')
             .attr('style', 'width: 18rem');
-        let recipeImage = searchedRecipes[index].recipe.image;
-        let recipeTitle = searchedRecipes[index].recipe.label;
-        let recipeLink = searchedRecipes[index].recipe.url;
         const cardContentContainer = $('<div>').addClass('px-3 py-3');
         let img = $('<img>').addClass('card-img-top').attr("src", recipeImage);
         let title = $('<h5>').addClass('card-title').text(recipeTitle);
+        // recipe Link button
         let recipeDirectedLink = $('<a>').addClass('btn');
         recipeDirectedLink.addClass('btn-link');
         recipeDirectedLink.attr('href', recipeLink)
         recipeDirectedLink.attr('target', '_blank');
         recipeDirectedLink.text('Go to recipe');
+        // groceries link button
+        let listGroceries = $('<a>').addClass('btn');
+            listGroceries.addClass('btn-info');
+            listGroceries.on('click', (event)=>{
+                clearIngredients();
+                let orderedList = $('<ol>').addClass('ordered-list').append(buildIngredients(searchedRecipes.recipe.ingredients));
+                $('#groceries').append(orderedList);
+            });
+            listGroceries.text('Groceries list');
+            cardContentContainer.append(title).append(recipeDirectedLink).append(listGroceries);
+            card.append(img).append(cardContentContainer);
+            $('.recipe-container').append(card);
     }
 
     const buildIngredients = (ingredients) =>{
@@ -70,6 +82,7 @@ $( () =>{
             groceryList.append(deleteButton)
             .append(doneButton);
             return groceryList;
+            
 
         })
     }
@@ -79,7 +92,10 @@ $( () =>{
         searchedRecipes = result.hits;
         clearRecipes();
         for (let j=0; j<searchedRecipes.length; j++){
-            createRecipeList(recipeImage, recipeLink, recipeTitle, j); //does not work
+            let recipeImage = searchedRecipes[j].recipe.image;
+            let recipeTitle = searchedRecipes[j].recipe.label;
+            let recipeLink = searchedRecipes[j].recipe.url;
+            buildRecipeCard(recipeImage, recipeLink, recipeTitle); //does not work
             // let card = $('<div>')
             //     .addClass('card mx-2 my-2 custom-card-width')
             //     .addClass('recipe-cards')
@@ -96,19 +112,19 @@ $( () =>{
             // recipeDirectedLink.attr('href', recipeLink)
             // recipeDirectedLink.attr('target', '_blank');
             // recipeDirectedLink.text('Go to recipe');
-            let listGroceries = $('<a>').addClass('btn');
-            listGroceries.addClass('btn-info');
-            listGroceries.on('click', (event)=>{
-                clearIngredients();
-                console.log(j);
-                console.log(searchedRecipes[j].recipe.ingredients);
-                let orderedList = $('<ol>').addClass('ordered-list').append(buildIngredients(searchedRecipes[j].recipe.ingredients));
-                $('#groceries').append(orderedList);
-            });
-            listGroceries.text('Groceries list');
-            cardContentContainer.append(title).append(recipeDirectedLink).append(listGroceries);
-            card.append(img).append(cardContentContainer);
-            $('.recipe-container').append(card);
+            // let listGroceries = $('<a>').addClass('btn');
+            // listGroceries.addClass('btn-info');
+            // listGroceries.on('click', (event)=>{
+            //     clearIngredients();
+            //     console.log(j);
+            //     console.log(searchedRecipes[j].recipe.ingredients);
+            //     let orderedList = $('<ol>').addClass('ordered-list').append(buildIngredients(searchedRecipes[j].recipe.ingredients));
+            //     $('#groceries').append(orderedList);
+            // });
+            // listGroceries.text('Groceries list');
+            // cardContentContainer.append(title).append(recipeDirectedLink).append(listGroceries);
+            // card.append(img).append(cardContentContainer);
+            // $('.recipe-container').append(card);
         }  
     }
     const deleteItem = (event) =>{
@@ -123,8 +139,6 @@ $( () =>{
     
     $ahoyRecipeBtn.on('click', fetchRecipe);
 
-    const recipe = getRecipe('beef rendang');
-    console.log(recipe);
 
 });
 
