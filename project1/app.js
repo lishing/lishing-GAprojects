@@ -67,7 +67,7 @@ $( () =>{
             });
             listGroceries.text('Groceries list');
             cardContentContainer.append(title).append(recipeDirectedLink).append(listGroceries);
-            card.append(img).append(cardContentContainer);
+            card.append(img).append(cardContentContainer)
             $('.recipe-container').append(card);
     }
 
@@ -77,6 +77,7 @@ $( () =>{
             let deleteButton = $('<button>').addClass('btn').addClass('btn-danger').attr('id', 'delete-button').text('remove');
             deleteButton.on('click', deleteItem);
             let doneButton = $('<button>').addClass('btn').addClass('btn-success').attr('id', 'done-button').text('done!');
+            // make done Button's style removable
             doneButton.on('click', doneItem);
             groceryList.append(deleteButton)
             .append(doneButton);
@@ -105,7 +106,7 @@ $( () =>{
 
     const doneItem = (event) =>{
         let item = $(event.currentTarget).parent();
-        item.css("text-decoration", "line-through");
+        item.toggleClass("done-item")
     }
     
     $ahoyRecipeBtn.on('click', fetchRecipe);

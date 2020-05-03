@@ -115,6 +115,10 @@ h2{
     margin-left: 1em;
 }
 
+.done-item{
+    text-decoration: line-through;
+}
+
 
 
 
