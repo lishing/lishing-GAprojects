@@ -62,5 +62,9 @@ With the selected recipe, I should be able to put the ingredients into to-do lis
 2. There should be a timer as reminder to consume purchased groceries within 2 weeks.
 3. The layout can be better, when all elements are displayed in one-screen. When clicked, it should be able to enlarge as a modal
 
+**Limitations**<br />
+<br />
+1. Flexbox was not optimized fully for the sections
+
 
 
