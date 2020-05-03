@@ -1,6 +1,7 @@
 # Husband Helpers
 ## Introduction
 Built for husbands to weather the storm during Covid-19 quarantine.
+![alt text] {https://lh3.googleusercontent.com/proxy/pow_LsojMKsjwTLzchcrAmrH21_f9oa4H3QBQkzCWlBPvg3mxDg2GUchNO-qcL00bXdpnORyKRBsIFl1cxf030AxfF7N-M3hMkrar9YsAUxhiU306mInGMRD "Husbands Shopping for Wives)
 This is also built for people who are new to cooking, and need ideas for home-cooked food. This place will display recipes and ingredients in grocies list.
 
 ## Project Scope and Approach
