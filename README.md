@@ -3,11 +3,11 @@
 Built for husbands to weather the storm during Covid-19 quarantine.
 This is also built for people who are new to cooking, and need ideas for home-cooked food. This place will display recipes and ingredients in grocies list.
 
-## Project Demo
-
-
 ## Project Scope and Approach
-WIP
+1. Define a problem statement faced by most work-from-home individuals, couples and families
+2. Drafted a layout of the app with basic functions like instructions, buttons, recipe links, as well as display of groceries
+3. Understand how recipe API works with AJAX from the data structure
+4. Make flexbox work for each section
 
 ## Technology utilized
 1. HTML and CSS
@@ -19,6 +19,7 @@ WIP
 ## Learnings
 I find it hard to refactor the code into higher-order functions. A lot of dependencies on parameters that is defined within the loop.
 
+Updated: HOF now works. Deeper understanding of parameters and arguments, amended the code and fixed the initial problems
 
 ## User Journey
 ### User Journey 1
@@ -55,9 +56,11 @@ With the selected recipe, I should be able to put the ingredients into to-do lis
 2. I should be able to delete the ingredients when see fit
 3. Once done, I should be able to know
 
-**Extra Implementation** <br />
+**Wishlist** <br />
 <br />
 1. Change to-do list via calendar (change to-do list to .cal) for grocery shopping
 2. There should be a timer as reminder to consume purchased groceries within 2 weeks.
 3. The layout can be better, when all elements are displayed in one-screen. When clicked, it should be able to enlarge as a modal
+
+
 
